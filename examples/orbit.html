@@ -11,7 +11,7 @@
       // https://jsfiddle.net/gftruj/gez2fxk9/8/
       AFRAME.registerComponent("scaled", {
         init: function() {
-          window.addEventListener("mousewheel", (e) => {
+          window.addEventListener("touchstart", (e) => {
             let scaleFactor = e.deltaY > 0 ? 0.9 : 1.1
             let scale = this.el.getAttribute("scale").clone()
             scale.multiplyScalar(scaleFactor)
