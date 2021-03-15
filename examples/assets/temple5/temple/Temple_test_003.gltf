@@ -1,0 +1,205 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v1.3.48",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "extensionsRequired": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "KB3D_ANT_BldgMD_F_TowerC",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071067094802856
+      ],
+      "scale": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "KB3D_ANT_StoneM",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0,
+              -1
+            ]
+          }
+        },
+        "index": 0,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0,
+                -1
+              ]
+            }
+          },
+          "index": 1,
+          "texCoord": 0
+        },
+        "metallicRoughnessTexture": {
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0,
+                -1
+              ]
+            }
+          },
+          "index": 2,
+          "texCoord": 0
+        },
+        "roughnessFactor": 0.5527864098548889
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh.001",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    },
+    {
+      "source": 1
+    },
+    {
+      "source": 2
+    }
+  ],
+  "images": [
+    {
+      "name": "KB3D_ANT_StoneM_normal",
+      "uri": "Temple_test_003_img0.png"
+    },
+    {
+      "name": "KB3D_ANT_WallM_basecolor",
+      "uri": "Temple_test_003_img1.png"
+    },
+    {
+      "name": "KB3D_ANT_StoneM_basecolor",
+      "uri": "Temple_test_003_img2.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 74286,
+      "max": [
+        642.657470703125,
+        1010.1314697265625,
+        558.6993408203125
+      ],
+      "min": [
+        -655.5618286132812,
+        -532.8906860351562,
+        -1078.70263671875
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 74286,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 74286,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 74286,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5125,
+      "count": 201270,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 891432,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 891432,
+      "byteOffset": 891432
+    },
+    {
+      "buffer": 0,
+      "byteLength": 594288,
+      "byteOffset": 1782864
+    },
+    {
+      "buffer": 0,
+      "byteLength": 594288,
+      "byteOffset": 2377152
+    },
+    {
+      "buffer": 0,
+      "byteLength": 805080,
+      "byteOffset": 2971440
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Temple_test_003_data.bin",
+      "byteLength": 3776520
+    }
+  ]
+}
