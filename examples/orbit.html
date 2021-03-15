@@ -5,6 +5,34 @@
     
     <style>
     </style>
+    <script>
+
+      AFRAME.registerComponent('autoscale', {
+        schema: {type: 'number', default: 1},
+        init: function () {
+          this.scale();
+          this.el.addEventListener('object3dset', () => this.scale());
+        },
+        scale: function () {
+          const el = this.el;
+          const span = this.data;
+          const mesh = el.getObject3D('mesh');
+
+          if (!mesh) return;
+
+          // Compute bounds.
+          const bbox = new THREE.Box3().setFromObject(mesh);
+
+          // Normalize scale.
+          const scale = span / bbox.getSize().length();
+          mesh.scale.set(scale, scale, scale);
+
+          // Recenter.
+          const offset = bbox.getCenter().multiplyScalar(scale);
+          mesh.position.sub(offset);
+        }
+      });
+    </script>
 </head>
 
 <body>
@@ -16,7 +44,7 @@
         </a-assets>
 
         <a-entity mindar-image-target="targetIndex: 0">
-          <a-entity id="castle" gltf-model="#castle" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" gesture-handler></a-entity>
+          <a-entity autoscale="1.5" id="castle" gltf-model="#castle" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" gesture-handler></a-entity>
         </a-entity>
 
         <a-camera camera look-controls></a-camera>
