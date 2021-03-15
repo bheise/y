@@ -1,6 +1,5 @@
 <head>
     <title>Orbit Controls</title>
-    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
     <script src="mindar.prod.js"></script>
     
     <style>
@@ -51,7 +50,7 @@
 
 <body>
   <div class="example-container">
-    <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
+    <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: flase">
         <a-assets>
             <img id="card" src="./assets/temple5/Marker3-01.jpg" />
             <a-asset-item id="castle" src="https://gftruj.github.io/webzamples/aframe/assets/models/sandcastle/SandCastle.gltf"></a-asset-item>
@@ -61,7 +60,7 @@
           <a-entity autoscale="1.5" id="castle" gltf-model="#castle" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" scaled></a-entity>
         </a-entity>
 
-        <a-camera camera look-controls orbit-controls="target: 0 1.6 -0.5; minDistance: 0.5; maxDistance: 180; initialPosition: 0 5 15"></a-camera>
+        <a-camera camera look-controls></a-camera>
     </a-scene>
   </div>
 </body>
