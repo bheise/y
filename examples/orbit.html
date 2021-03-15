@@ -39,12 +39,12 @@
   <div class="example-container">
     <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true" gesture-detector>
         <a-assets>
-            <img id="card" src="./assets/temple5/Marker3-01.jpg" />
+            <img id="card" src="./assets/temple5/Marker3-01.jpg" raycaster="objects: .clickable" emitevents="true" />
             <a-asset-item id="castle" src="https://gftruj.github.io/webzamples/aframe/assets/models/sandcastle/SandCastle.gltf"></a-asset-item>
         </a-assets>
 
         <a-entity mindar-image-target="targetIndex: 0">
-          <a-entity autoscale="1.5" id="castle" gltf-model="#castle" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" gesture-handler></a-entity>
+          <a-entity autoscale="1.5" id="castle" gltf-model="#castle" class="clickable" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" gesture-handler></a-entity>
         </a-entity>
 
         <a-camera camera look-controls></a-camera>
