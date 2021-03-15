@@ -1,47 +1,31 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="mindar.prod.js"></script>
-   
-    <style>
-      body {
-        margin: 0;
-      }
-      .example-container {
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
+<head>
+  <title>Orbit Controls</title>
+  <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  <script src="mindar.prod.js"></script>
+  
+  <style>
+  </style>
 
-    <script>
-      var _0x1a41=['touchEnabled','touchstart','getAttribute','body','addEventListener','multiplyScalar','13241ZkbLFw','sceneEl','pinch-controls','310015jFcTTC','331590CxgvXz','distance','length','add','setAttribute','touches','deltaY','calculatePinchDistance','655299RbQoSD','2169zGKOdC','pageX','moveCamera','scaled','sqrt','pageY','position','wheel','439zOYAub','25321qUeasA','camera','15dXmTND','scale','bind','979532dODCKZ','[camera]','mousewheel','getWorldDirection','29awuFlA','clone','direction','look-controls','registerComponent'];var _0xfa4b=function(_0x2fb0fa,_0x1ef42e){_0x2fb0fa=_0x2fb0fa-0x12f;var _0x1a413e=_0x1a41[_0x2fb0fa];return _0x1a413e;};var _0x39432c=_0xfa4b;(function(_0x4f26b4,_0x37344e){var _0x23d11a=_0xfa4b;while(!![]){try{var _0x57578c=-parseInt(_0x23d11a(0x14b))*-parseInt(_0x23d11a(0x154))+parseInt(_0x23d11a(0x142))*parseInt(_0x23d11a(0x14a))+-parseInt(_0x23d11a(0x150))+parseInt(_0x23d11a(0x139))+-parseInt(_0x23d11a(0x135))*parseInt(_0x23d11a(0x14d))+-parseInt(_0x23d11a(0x141))+parseInt(_0x23d11a(0x138));if(_0x57578c===_0x37344e)break;else _0x4f26b4['push'](_0x4f26b4['shift']());}catch(_0x48c7be){_0x4f26b4['push'](_0x4f26b4['shift']());}}}(_0x1a41,0x78c43),AFRAME[_0x39432c(0x158)](_0x39432c(0x145),{'init':function(){var _0x4109c6=_0x39432c;window['addEventListener'](_0x4109c6(0x152),_0x1b27ba=>{var _0x72579=_0x4109c6;let _0x4eed54=_0x1b27ba[_0x72579(0x13f)]>0x0?0.9:1.1,_0x269603=this['el'][_0x72579(0x131)]('scale')[_0x72579(0x155)]();_0x269603[_0x72579(0x134)](_0x4eed54),this['el'][_0x72579(0x13d)](_0x72579(0x14e),_0x269603);});}}),AFRAME['registerComponent'](_0x39432c(0x137),{'init':function(){var _0xd9f239=_0x39432c;this[_0xd9f239(0x144)][_0xd9f239(0x14f)](this),this[_0xd9f239(0x13a)]=0x0,this[_0xd9f239(0x156)]=new THREE['Vector3'](),this[_0xd9f239(0x14c)]=document['querySelector'](_0xd9f239(0x151)),document['body'][_0xd9f239(0x133)](_0xd9f239(0x130),_0x52669e=>{var _0x439279=_0xd9f239;if(_0x52669e['touches'][_0x439279(0x13b)]!=0x2)return 0x0;this[_0x439279(0x13a)]=this['calculatePinchDistance'](_0x52669e),this['el'][_0x439279(0x13d)](_0x439279(0x157),_0x439279(0x12f),![]);},![]),document[_0xd9f239(0x132)][_0xd9f239(0x133)]('touchend',_0x3d2108=>{var _0x1c586d=_0xd9f239;if(_0x3d2108[_0x1c586d(0x13e)][_0x1c586d(0x13b)]!=0x1)this['el'][_0x1c586d(0x13d)]('look-controls',_0x1c586d(0x12f),!![]);},![]),document['body']['addEventListener'](_0xd9f239(0x149),_0x715d49=>{var _0x549d41=_0xd9f239;this[_0x549d41(0x144)](_0x715d49[_0x549d41(0x13f)]<0x0?-0.2:0.2);}),document[_0xd9f239(0x132)][_0xd9f239(0x133)]('touchmove',_0x80e38c=>{var _0x258eb5=_0xd9f239;if(_0x80e38c['touches'][_0x258eb5(0x13b)]!=0x2)return 0x0;var _0x364ae1=this[_0x258eb5(0x140)](_0x80e38c);let _0x3baff7=_0x364ae1<this[_0x258eb5(0x13a)]?-0.2:0.2;;if(!isNaN(_0x3baff7))this[_0x258eb5(0x144)](_0x3baff7);this['distance']=_0x364ae1;},![]);},'calculatePinchDistance':function(_0x53c46f){var _0x1ad4c8=_0x39432c,_0x439868=event[_0x1ad4c8(0x13e)][0x0][_0x1ad4c8(0x143)]-event[_0x1ad4c8(0x13e)][0x1][_0x1ad4c8(0x143)],_0x31d81b=event[_0x1ad4c8(0x13e)][0x0][_0x1ad4c8(0x147)]-event[_0x1ad4c8(0x13e)][0x1][_0x1ad4c8(0x147)];return Math[_0x1ad4c8(0x146)](_0x439868*_0x439868+_0x31d81b*_0x31d81b);},'moveCamera':function(_0x226949){var _0x283280=_0x39432c;this['el'][_0x283280(0x136)]['camera'][_0x283280(0x153)](this[_0x283280(0x156)]),this[_0x283280(0x156)][_0x283280(0x134)](_0x226949);var _0x3489cd=this['el'][_0x283280(0x131)](_0x283280(0x148));_0x3489cd[_0x283280(0x13c)](this[_0x283280(0x156)]),this['el'][_0x283280(0x13d)](_0x283280(0x148),_0x3489cd);}}));
+  <script>
 
-      const _0x34bc=['position','getSize','2917zvAgxy','869xArdnF','autoscale','393724ArDBIy','set','data','registerComponent','addEventListener','49199gwqOTY','19002OTAldW','Box3','length','11bljcqd','setFromObject','305NUlWXM','896700cPbGPs','object3dset','920743gHOtmP','getObject3D','scale','number','722itzEKQ','getCenter'];const _0x1681=function(_0x13fa1f,_0x37ab2e){_0x13fa1f=_0x13fa1f-0x7a;let _0x34bc9f=_0x34bc[_0x13fa1f];return _0x34bc9f;};const _0x3331bb=_0x1681;(function(_0x4c94fa,_0x2bc552){const _0x1fbfba=_0x1681;while(!![]){try{const _0x47ba0d=-parseInt(_0x1fbfba(0x85))+-parseInt(_0x1fbfba(0x8e))*-parseInt(_0x1fbfba(0x8a))+parseInt(_0x1fbfba(0x7a))+parseInt(_0x1fbfba(0x91))+-parseInt(_0x1fbfba(0x83))*parseInt(_0x1fbfba(0x7e))+parseInt(_0x1fbfba(0x8b))+-parseInt(_0x1fbfba(0x82))*parseInt(_0x1fbfba(0x90));if(_0x47ba0d===_0x2bc552)break;else _0x4c94fa['push'](_0x4c94fa['shift']());}catch(_0x6e3a13){_0x4c94fa['push'](_0x4c94fa['shift']());}}}(_0x34bc,0x71f77),AFRAME[_0x3331bb(0x88)](_0x3331bb(0x84),{'schema':{'type':_0x3331bb(0x7d),'default':0x1},'init':function(){const _0x1b43c6=_0x3331bb;this[_0x1b43c6(0x7c)](),this['el'][_0x1b43c6(0x89)](_0x1b43c6(0x92),()=>this['scale']());},'scale':function(){const _0x262012=_0x3331bb,_0x38917f=this['el'],_0x581c1a=this[_0x262012(0x87)],_0xb9f6b9=_0x38917f[_0x262012(0x7b)]('mesh');if(!_0xb9f6b9)return;const _0x4a123b=new THREE[(_0x262012(0x8c))]()[_0x262012(0x8f)](_0xb9f6b9),_0x24d89e=_0x581c1a/_0x4a123b[_0x262012(0x81)]()[_0x262012(0x8d)]();_0xb9f6b9['scale'][_0x262012(0x86)](_0x24d89e,_0x24d89e,_0x24d89e);const _0x4b7605=_0x4a123b[_0x262012(0x7f)]()['multiplyScalar'](_0x24d89e);_0xb9f6b9[_0x262012(0x80)]['sub'](_0x4b7605);}}));
+    const _0x58a5=['registerComponent','1JDetbn','multiplyScalar','Box3','733304lnnrkZ','27SaBrFt','clone','setFromObject','getCenter','set','position','23GZbgRJ','scale','128625HOdpFn','getSize','deltaY','getObject3D','object3dset','data','18689tSEITd','addEventListener','468280qgTBvr','setAttribute','length','scaled','number','mesh','799581iUKHUU','689653kgjVOh','autoscale','mousewheel','37633RNiyph'];const _0x153b=function(_0x51268f,_0x52fee0){_0x51268f=_0x51268f-0xb5;let _0x58a595=_0x58a5[_0x51268f];return _0x58a595;};const _0x3a3181=_0x153b;(function(_0x28dd15,_0x5ea606){const _0x6685c0=_0x153b;while(!![]){try{const _0x2147c9=parseInt(_0x6685c0(0xb9))*-parseInt(_0x6685c0(0xc1))+-parseInt(_0x6685c0(0xcf))*parseInt(_0x6685c0(0xca))+parseInt(_0x6685c0(0xbb))+parseInt(_0x6685c0(0xd2))+-parseInt(_0x6685c0(0xc9))+parseInt(_0x6685c0(0xc3))+-parseInt(_0x6685c0(0xd3))*-parseInt(_0x6685c0(0xcd));if(_0x2147c9===_0x5ea606)break;else _0x28dd15['push'](_0x28dd15['shift']());}catch(_0x14149d){_0x28dd15['push'](_0x28dd15['shift']());}}}(_0x58a5,0x684d3),AFRAME[_0x3a3181(0xce)](_0x3a3181(0xc6),{'init':function(){const _0x2687ac=_0x3a3181;window['addEventListener'](_0x2687ac(0xcc),_0x327922=>{const _0x47c38b=_0x2687ac;let _0xe66641=_0x327922[_0x47c38b(0xbd)]>0x0?0.9:1.1,_0x424710=this['el']['getAttribute'](_0x47c38b(0xba))[_0x47c38b(0xd4)]();_0x424710[_0x47c38b(0xd0)](_0xe66641),this['el'][_0x47c38b(0xc4)](_0x47c38b(0xba),_0x424710);});}}),AFRAME['registerComponent'](_0x3a3181(0xcb),{'schema':{'type':_0x3a3181(0xc7),'default':0x1},'init':function(){const _0x41945f=_0x3a3181;this[_0x41945f(0xba)](),this['el'][_0x41945f(0xc2)](_0x41945f(0xbf),()=>this[_0x41945f(0xba)]());},'scale':function(){const _0x55d4c2=_0x3a3181,_0x1054ae=this['el'],_0x24d615=this[_0x55d4c2(0xc0)],_0x2cf086=_0x1054ae[_0x55d4c2(0xbe)](_0x55d4c2(0xc8));if(!_0x2cf086)return;const _0x499c03=new THREE[(_0x55d4c2(0xd1))]()[_0x55d4c2(0xb5)](_0x2cf086),_0x6d22e1=_0x24d615/_0x499c03[_0x55d4c2(0xbc)]()[_0x55d4c2(0xc5)]();_0x2cf086[_0x55d4c2(0xba)][_0x55d4c2(0xb7)](_0x6d22e1,_0x6d22e1,_0x6d22e1);const _0x39d6f0=_0x499c03[_0x55d4c2(0xb6)]()[_0x55d4c2(0xd0)](_0x6d22e1);_0x2cf086[_0x55d4c2(0xb8)]['sub'](_0x39d6f0);}}));
 
-    </script>
-  </head>
+  </script>
+</head>
 
-  <body>
-    <div class="example-container">
-      <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <a-assets>
+<body>
+<div class="example-container">
+  <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
           <img id="card" src="./assets/temple5/Marker3-01.jpg" />
-          <!-- <a-asset-item id="avatarModel" src="./assets/rocket/dino/Velociraptor.gltf"></a-asset-item> -->
-          <a-asset-item id="avatarModel" src="./assets/temple5/temple/Temple_test_003.gltf"></a-asset-item>
-        </a-assets>
+          <a-asset-item id="castle" src="https://gftruj.github.io/webzamples/aframe/assets/models/sandcastle/SandCastle.gltf"></a-asset-item>
+      </a-assets>
 
-        <a-camera look-controls 
-          orbit-controls="target: 0 1.6 -0.5; initialPosition: 0 5 15"></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity autoscale="1.5" id="castle" gltf-model="#castle" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" scaled></a-entity>
+      </a-entity>
 
-        <a-entity mindar-image-target="targetIndex: 0">
-
-          <!-- <a-gltf-model rotation="0 0 0" src="#avatarModel"> -->
-          <a-gltf-model autoscale="1.5" rotation="0 0 0" id="gltf" src="#avatarModel" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" scaled></a-gltf-model>
-        </a-entity>
-      </a-scene>
-
-    </div>
-  </body>
-</html>
+      <a-camera camera look-controls orbit-controls="target: 0 1.6 -0.5; minDistance: 0.5; maxDistance: 180; initialPosition: 0 5 15"></a-camera>
+  </a-scene>
+</div>
+</body>
