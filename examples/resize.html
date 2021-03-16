@@ -1,36 +1,48 @@
+<!DOCTYPE html>
+
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="mindar.prod.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-   
-    <style>
-      body {
-        margin: 0;
-      }
-      .container {
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
+    <title>Gesture Interactions - A-Frame & AR.js</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="styles.css" />
 
-  <body>
-    <div class="container">
-      <a-scene mindar="imageTargetSrc: ./assets/card-example/card.mind; showStats: true;" arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" embedded color-space="sRGB" renderer="logarithmicDepthBuffer: true; colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-        <a-entity mindar-image-target="targetIndex: 0">
-          <a-entity geometry="primitive:plane;" material="shader:gif;src:url(minion.gif);opacity:1" class="clickable"></a-entity>
-        </a-entity>
-      </a-scene>
-    </div>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://fcor.github.io/arjs-gestures/gesture-detector.js"></script>
     <script src="https://fcor.github.io/arjs-gestures/gesture-handler.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      embedded
+      renderer="logarithmicDepthBuffer: true;"
+      vr-mode-ui="enabled: false"
+      gesture-detector
+      id="scene"
+    >
+      <a-nft
+        type="nft"
+        url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+      >
+        <a-entity
+          gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+          scale="5 5 5"
+          position="50 150 0"
+          class="clickable"
+          gesture-handler
+        >
+        </a-entity>
+      </a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
   </body>
 </html>
