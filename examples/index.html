@@ -1,8 +1,47 @@
 <html>
   <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="mindar.prod.js"></script>
-   
+
+    <script>
+      const showInfo = () => {
+			
+        let modal = document.querySelector('.modal')
+                    modal.classList.add("show")
+      }
+
+      const showAvatar = (onDone) => {
+        const avatar = document.querySelector("#avatar");
+        let z = -0.3;
+        const id = setInterval(() => {
+          z += 0.008;
+          if (z >= 0.3) {
+            clearInterval(id);
+            onDone();
+          }
+          avatar.setAttribute("position", "0 -0.25 " + z);
+        }, 0);
+      }
+
+      AFRAME.registerComponent('mytarget', {
+        init: function () {
+          this.el.addEventListener('targetFound', event => {
+            console.log("target found");
+            showAvatar(() => {
+                    showInfo();
+    
+            });
+          });
+          this.el.addEventListener('targetLost', event => {
+            console.log("target found");
+          });
+          //this.el.emit('targetFound');
+        }
+      });
+    </script>
+
     <style>
       body {
         margin: 0;
@@ -13,35 +52,223 @@
         width: 100%;
         height: 100%;
       }
+     
+      #example-scanning-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: transparent;
+	z-index: 2;
+      }
+      @media (min-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 50vh;
+	  height: 50vh;
+	}
+      }
+      @media (max-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 80vw;
+	  height: 80vw;
+	}
+      }
+
+      #example-scanning-overlay .inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	background:
+	  linear-gradient(to right, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+      }
+
+      #example-scanning-overlay.hidden {
+	display: none;
+      }
+
+      #example-scanning-overlay img {
+	opacity: 0.6;
+	width: 90%;
+	align-self: center;
+      }
+
+      #example-scanning-overlay .inner .scanline {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background: white;
+	animation: move 2s linear infinite;
+      }
+      @keyframes move {
+	0%, 100% { top: 0% }
+	50% { top: calc(100% - 10px) }
+      }
     </style>
 
-    <script>
-      var _0x1a41=['touchEnabled','touchstart','getAttribute','body','addEventListener','multiplyScalar','13241ZkbLFw','sceneEl','pinch-controls','310015jFcTTC','331590CxgvXz','distance','length','add','setAttribute','touches','deltaY','calculatePinchDistance','655299RbQoSD','2169zGKOdC','pageX','moveCamera','scaled','sqrt','pageY','position','wheel','439zOYAub','25321qUeasA','camera','15dXmTND','scale','bind','979532dODCKZ','[camera]','mousewheel','getWorldDirection','29awuFlA','clone','direction','look-controls','registerComponent'];var _0xfa4b=function(_0x2fb0fa,_0x1ef42e){_0x2fb0fa=_0x2fb0fa-0x12f;var _0x1a413e=_0x1a41[_0x2fb0fa];return _0x1a413e;};var _0x39432c=_0xfa4b;(function(_0x4f26b4,_0x37344e){var _0x23d11a=_0xfa4b;while(!![]){try{var _0x57578c=-parseInt(_0x23d11a(0x14b))*-parseInt(_0x23d11a(0x154))+parseInt(_0x23d11a(0x142))*parseInt(_0x23d11a(0x14a))+-parseInt(_0x23d11a(0x150))+parseInt(_0x23d11a(0x139))+-parseInt(_0x23d11a(0x135))*parseInt(_0x23d11a(0x14d))+-parseInt(_0x23d11a(0x141))+parseInt(_0x23d11a(0x138));if(_0x57578c===_0x37344e)break;else _0x4f26b4['push'](_0x4f26b4['shift']());}catch(_0x48c7be){_0x4f26b4['push'](_0x4f26b4['shift']());}}}(_0x1a41,0x78c43),AFRAME[_0x39432c(0x158)](_0x39432c(0x145),{'init':function(){var _0x4109c6=_0x39432c;window['addEventListener'](_0x4109c6(0x152),_0x1b27ba=>{var _0x72579=_0x4109c6;let _0x4eed54=_0x1b27ba[_0x72579(0x13f)]>0x0?0.9:1.1,_0x269603=this['el'][_0x72579(0x131)]('scale')[_0x72579(0x155)]();_0x269603[_0x72579(0x134)](_0x4eed54),this['el'][_0x72579(0x13d)](_0x72579(0x14e),_0x269603);});}}),AFRAME['registerComponent'](_0x39432c(0x137),{'init':function(){var _0xd9f239=_0x39432c;this[_0xd9f239(0x144)][_0xd9f239(0x14f)](this),this[_0xd9f239(0x13a)]=0x0,this[_0xd9f239(0x156)]=new THREE['Vector3'](),this[_0xd9f239(0x14c)]=document['querySelector'](_0xd9f239(0x151)),document['body'][_0xd9f239(0x133)](_0xd9f239(0x130),_0x52669e=>{var _0x439279=_0xd9f239;if(_0x52669e['touches'][_0x439279(0x13b)]!=0x2)return 0x0;this[_0x439279(0x13a)]=this['calculatePinchDistance'](_0x52669e),this['el'][_0x439279(0x13d)](_0x439279(0x157),_0x439279(0x12f),![]);},![]),document[_0xd9f239(0x132)][_0xd9f239(0x133)]('touchend',_0x3d2108=>{var _0x1c586d=_0xd9f239;if(_0x3d2108[_0x1c586d(0x13e)][_0x1c586d(0x13b)]!=0x1)this['el'][_0x1c586d(0x13d)]('look-controls',_0x1c586d(0x12f),!![]);},![]),document['body']['addEventListener'](_0xd9f239(0x149),_0x715d49=>{var _0x549d41=_0xd9f239;this[_0x549d41(0x144)](_0x715d49[_0x549d41(0x13f)]<0x0?-0.2:0.2);}),document[_0xd9f239(0x132)][_0xd9f239(0x133)]('touchmove',_0x80e38c=>{var _0x258eb5=_0xd9f239;if(_0x80e38c['touches'][_0x258eb5(0x13b)]!=0x2)return 0x0;var _0x364ae1=this[_0x258eb5(0x140)](_0x80e38c);let _0x3baff7=_0x364ae1<this[_0x258eb5(0x13a)]?-0.2:0.2;;if(!isNaN(_0x3baff7))this[_0x258eb5(0x144)](_0x3baff7);this['distance']=_0x364ae1;},![]);},'calculatePinchDistance':function(_0x53c46f){var _0x1ad4c8=_0x39432c,_0x439868=event[_0x1ad4c8(0x13e)][0x0][_0x1ad4c8(0x143)]-event[_0x1ad4c8(0x13e)][0x1][_0x1ad4c8(0x143)],_0x31d81b=event[_0x1ad4c8(0x13e)][0x0][_0x1ad4c8(0x147)]-event[_0x1ad4c8(0x13e)][0x1][_0x1ad4c8(0x147)];return Math[_0x1ad4c8(0x146)](_0x439868*_0x439868+_0x31d81b*_0x31d81b);},'moveCamera':function(_0x226949){var _0x283280=_0x39432c;this['el'][_0x283280(0x136)]['camera'][_0x283280(0x153)](this[_0x283280(0x156)]),this[_0x283280(0x156)][_0x283280(0x134)](_0x226949);var _0x3489cd=this['el'][_0x283280(0x131)](_0x283280(0x148));_0x3489cd[_0x283280(0x13c)](this[_0x283280(0x156)]),this['el'][_0x283280(0x13d)](_0x283280(0x148),_0x3489cd);}}));
+<style type="text/css">
+  .modal {
+    position: fixed;
+    color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: arial;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-      const _0x34bc=['position','getSize','2917zvAgxy','869xArdnF','autoscale','393724ArDBIy','set','data','registerComponent','addEventListener','49199gwqOTY','19002OTAldW','Box3','length','11bljcqd','setFromObject','305NUlWXM','896700cPbGPs','object3dset','920743gHOtmP','getObject3D','scale','number','722itzEKQ','getCenter'];const _0x1681=function(_0x13fa1f,_0x37ab2e){_0x13fa1f=_0x13fa1f-0x7a;let _0x34bc9f=_0x34bc[_0x13fa1f];return _0x34bc9f;};const _0x3331bb=_0x1681;(function(_0x4c94fa,_0x2bc552){const _0x1fbfba=_0x1681;while(!![]){try{const _0x47ba0d=-parseInt(_0x1fbfba(0x85))+-parseInt(_0x1fbfba(0x8e))*-parseInt(_0x1fbfba(0x8a))+parseInt(_0x1fbfba(0x7a))+parseInt(_0x1fbfba(0x91))+-parseInt(_0x1fbfba(0x83))*parseInt(_0x1fbfba(0x7e))+parseInt(_0x1fbfba(0x8b))+-parseInt(_0x1fbfba(0x82))*parseInt(_0x1fbfba(0x90));if(_0x47ba0d===_0x2bc552)break;else _0x4c94fa['push'](_0x4c94fa['shift']());}catch(_0x6e3a13){_0x4c94fa['push'](_0x4c94fa['shift']());}}}(_0x34bc,0x71f77),AFRAME[_0x3331bb(0x88)](_0x3331bb(0x84),{'schema':{'type':_0x3331bb(0x7d),'default':0x1},'init':function(){const _0x1b43c6=_0x3331bb;this[_0x1b43c6(0x7c)](),this['el'][_0x1b43c6(0x89)](_0x1b43c6(0x92),()=>this['scale']());},'scale':function(){const _0x262012=_0x3331bb,_0x38917f=this['el'],_0x581c1a=this[_0x262012(0x87)],_0xb9f6b9=_0x38917f[_0x262012(0x7b)]('mesh');if(!_0xb9f6b9)return;const _0x4a123b=new THREE[(_0x262012(0x8c))]()[_0x262012(0x8f)](_0xb9f6b9),_0x24d89e=_0x581c1a/_0x4a123b[_0x262012(0x81)]()[_0x262012(0x8d)]();_0xb9f6b9['scale'][_0x262012(0x86)](_0x24d89e,_0x24d89e,_0x24d89e);const _0x4b7605=_0x4a123b[_0x262012(0x7f)]()['multiplyScalar'](_0x24d89e);_0xb9f6b9[_0x262012(0x80)]['sub'](_0x4b7605);}}));
+    z-index: 999;
+    opacity: 0;
+    
+    /* transition: opacity 1s ease; */
+  }
+  .modal.show {
+    right: 10px;
+    top: 10px;
+    
+    opacity: 1;
+  }
 
-    </script>
+
+  #blocker {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
+</style>
   </head>
-
   <body>
-    <div class="example-container">
-      <a-scene mindar="imageTargetSrc: ./assets/temple5/logo1.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <a-assets>
-          <img id="card" src="./assets/temple5/Marker3-01.jpg" />
-          <!-- <a-asset-item id="avatarModel" src="./assets/rocket/dino/Velociraptor.gltf"></a-asset-item> -->
-          <a-asset-item id="avatarModel" src="./assets/temple5/temple/Temple_test_003.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-camera look-controls 
-          orbit-controls="target: 0 1.6 -0.5; initialPosition: 0 5 15"></a-camera>
-
-        <a-entity mindar-image-target="targetIndex: 0">
-
-          <!-- <a-gltf-model rotation="0 0 0" src="#avatarModel"> -->
-          <a-gltf-model autoscale="1.5" rotation="0 0 0" id="gltf" src="#avatarModel" animation="property: object3D.rotation.y; from: 0; to: 360; dur: 10000; loop: true;" scaled></a-gltf-model>
-        </a-entity>
-      </a-scene>
-
+    <div class="modal">
     </div>
+		<div id="blocker"></div>
+    <div class="example-container">
+      <div id="example-scanning-overlay" class="hidden">
+      <div class="inner">
+        <!-- <img src="assets/card2-example/card.png"/> -->
+        <div class="scanline"></div>
+      </div>
+    </div>
+
+      <a-scene mindar="imageTargetSrc: ./assets/card-example/card.mind; showStats: false; uiScanning: #example-scanning-overlay;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+
+        <a-camera position="0 0 0" look-controls="enabled: false">
+        </a-camera>
+
+        <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0"></a-entity>
+      </a-scene>
+    </div>
+
+    <script type="module">
+
+			import * as THREE from 'https://threejs.org/build/three.module.js';
+
+			import { TrackballControls } from 'https://threejs.org/examples/jsm/controls/TrackballControls.js';
+			import { CSS3DRenderer, CSS3DObject } from 'https://threejs.org/examples/jsm/renderers/CSS3DRenderer.js';
+
+			let camera, scene, renderer;
+			let controls;
+
+			function Element( id, x, y, z, ry ) {
+
+				const div = document.createElement( 'div' );
+				div.style.width = '480px';
+				div.style.height = '360px';
+				div.style.backgroundColor = '#000';
+
+				const iframe = document.createElement( 'iframe' );
+				iframe.style.width = '480px';
+				iframe.style.height = '360px';
+				iframe.style.border = '0px';
+				iframe.src = [ 'https://www.youtube.com/embed/', id, '?rel=0' ].join( '' );
+				div.appendChild( iframe );
+
+				const object = new CSS3DObject( div );
+				object.position.set( x, y, z );
+				object.rotation.y = ry;
+
+				return object;
+
+			};
+
+			init();
+			animate();
+
+			function init() {
+
+				const container = document.querySelector( '.modal' );
+
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
+				camera.position.set( 500, 350, 750 );
+
+				scene = new THREE.Scene();
+
+				renderer = new CSS3DRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+				const group = new THREE.Group();
+				group.add( new Element( 'nRD03XR-5iM', 0, 0, 0, .6 ) );
+				// group.add( new Element( 'Y2-xZ-1HE-Q', 240, 0, 0, Math.PI / 2 ) );
+				// group.add( new Element( 'IrydklNpcFI', 0, 0, - 240, Math.PI ) );
+				// group.add( new Element( '9ubytEsCaS0', - 240, 0, 0, - Math.PI / 2 ) );
+				scene.add( group );
+
+				controls = new TrackballControls( camera, renderer.domElement );
+				controls.rotateSpeed = 4;
+
+				window.addEventListener( 'resize', onWindowResize );
+
+				// Block iframe events when dragging camera
+
+				const blocker = document.getElementById( 'blocker' );
+				blocker.style.display = 'none';
+
+				controls.addEventListener( 'start', function () {
+
+					blocker.style.display = '';
+
+				} );
+				controls.addEventListener( 'end', function () {
+
+					blocker.style.display = 'none';
+
+				} );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+				controls.update();
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
   </body>
 </html>
