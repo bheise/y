@@ -1,0 +1,80 @@
+
+<html>
+
+  <head>
+    <title>A-Frame Example Component - Basic</title>
+    <!-- <script src="mindar.prod.js"></script> -->
+    <script src="https://tizzle.github.io/aframe-orbit-controls-component/build.js"></script>
+   
+    <style>
+      body {
+        margin: 0;
+      }
+      .example-container {
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="aframe" class="example-container">
+      <a-scene id="a-scene" mindar="imageTargetSrc: ./assets/card-example/card.mind; showStats: true;" embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+
+        <a-assets>
+          <img id="card" src="./assets/card-example/card.png" />
+          <a-asset-item id="avatarModel" src="./assets/card-example/softmind/scene.gltf"></a-asset-item>
+        </a-assets>
+  
+        <a-entity
+          id="camera"
+          camera="fov: 80; zoom: 1;"
+          position="0 2 5"
+          orbit-controls="
+            invertZoom: true;
+            autoRotate: false;
+            target: #sphere;
+            enableDamping: true;
+            dampingFactor: 0.125;
+            rotateSpeed:0.25;
+            minDistance:3;
+            maxDistance:100;
+          "
+          mouse-cursor=""
+        >
+          <a-entity geometry="primitive:cone; radius-bottom:1; radius-top:0" scale=".33 1 .33" position="0 0 0" rotation="90 0 0" material="color: #0099ff; transparent: true; opacity:0.5"></a-entity>
+        </a-entity>
+  
+        <a-entity mindar-image-target="targetIndex: 0" id="target">
+          <a-sphere id="sphere" position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
+          <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+
+          <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel"
+            animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+          >
+        </a-entity>
+  
+      </a-scene>
+    </div>
+  
+    <script>
+  
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var scene = document.querySelector('a-scene');
+  
+        if (scene.hasLoaded) addEventListeners();
+        else scene.addEventListener('loaded', handleSceneLoaded);
+      });
+  
+      function handleSceneLoaded() {
+        console.log('scene loaded');
+        document.querySelector('#camera').setAttribute('camera', 'active', true);
+      }
+    </script>
+  
+  </body>
+  
+  </html>
+  
