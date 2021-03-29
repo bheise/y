@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squirrel</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <style>
+    body {
+      background: green;
+    }
+    model-viewer {
+      width: 50vh;
+      height: 50vh;
+    }
+    </style>
+    <model-viewer
+    src="squirrel.glb"
+    ios-src="squirrel.usdz"
+    ar auto-rotate camera-controls data-js-focus-visible background-color shadow-intensity="3" alt="squirrel">
+
+      <button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
+        👋 Activate AR
+    </button>
+    </model-viewer>
+</body>
+</html>
