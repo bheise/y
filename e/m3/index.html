@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Squirrel</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
-  <div>
-    <!-- <a rel="ar" href="squirrel.usdz">
-        <img src="squirrel.jpg" width="100%">
-    </a> -->
-
+  <style>
+    model-viewer {
+      width: 50vh;
+      height: 50vh;
+    }
+    </style>
     <model-viewer
     src="squirrel.glb"
     ios-src="squirrel.usdz"
-    ar auto-rotate camera-controls background-color="#fff">
+    ar auto-rotate camera-controls data-js-focus-visible background-color="#fff" shadow-intensity="3" interaction-prompt="auto" alt="squirrel">
     </model-viewer>
-</div>
 </body>
 </html>
