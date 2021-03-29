@@ -10,9 +10,13 @@
 <body>
   <style>
     body {
-      background: green;
+      background: green !important;
+      padding: 0;
+      margin: 0;
     }
+    
     model-viewer {
+      --poster-color: transparent;
       width: 50vh;
       height: 50vh;
     }
@@ -20,7 +24,7 @@
     <model-viewer
     src="squirrel.glb"
     ios-src="squirrel.usdz"
-    ar auto-rotate camera-controls data-js-focus-visible background-color shadow-intensity="3" alt="squirrel">
+    ar auto-rotate camera-controls data-js-focus-visible background-color shadow-intensity="3" alt="squirrel" poster="squirrel.jpg">
 
       <button slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
         👋 Activate AR
