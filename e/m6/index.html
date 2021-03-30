@@ -14,20 +14,34 @@
      })();
     </script>
     <style>
+      
      .relar [data-hide-on-relar] {
        display: none;
      }
+     a[rel="ar"] {
+      opacity: 1;
+      transition: opacity 1s;
+      position: relative;
+      z-index: 0;
+     }
+     @media screen and (min-width: 500px) {
+        a[rel="ar"] {
+          opacity: 0;
+          z-index: -1;
+        }
+     }
+
     </style>
 
   </head>
   <body>
-    <h1>AR Quick Look Example</h1>
-    <p data-hide-on-relar>Visit this page on iOS 12 to try AR Quick Look</p>
+    <!-- <h1>AR Quick Look Example</h1>
+    <p data-hide-on-relar>Visit this page on iOS 12 to try AR Quick Look</p> -->
     <a href="squirrel.usdz" rel="ar">
       <img src="squirrel.jpg" width="250" height="250">
     </a>
 
-    <h2>in HTML</h2>
+    <!-- <h2>in HTML</h2>
     <code>img<code> tag in <code>a<code> tag is required.
     <code>
       <pre>
@@ -64,7 +78,7 @@
     </code>
 
     <p>More usdz are in <a href="https://developer.apple.com/arkit/gallery/" target="_blank">https://developer.apple.com/arkit/gallery/</a> or <a href="https://www.fusionar.app">https://www.fusionar.app</a>.</p>
-    <p>More resources are in <a href="https://github.com/vfxpro99/usd-resources">https://github.com/vfxpro99/usd-resources</a></p>
+    <p>More resources are in <a href="https://github.com/vfxpro99/usd-resources">https://github.com/vfxpro99/usd-resources</a></p> -->
 
   </body>
 </html>
