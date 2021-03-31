@@ -15,10 +15,11 @@
     </script>
     <style>
       
-     .relar [data-hide-on-relar] {
+     .relar [data-hide-on-relar],
+     a[rel="ar"] {
        display: none;
      }
-     a[rel="ar"] {
+     /* a[rel="ar"] {
       opacity: 1;
       transition: opacity 1s;
       position: relative;
@@ -29,6 +30,18 @@
           opacity: 0;
           z-index: -1;
         }
+     } */
+
+     /* @media only screen and (hover: none) and (pointer: coarse){
+      a[rel="ar"] {
+        display: block;
+      }
+     } */
+
+     @media only screen and (hover: none) {
+      a[rel="ar"] {
+        display: block;
+      }
      }
 
     </style>

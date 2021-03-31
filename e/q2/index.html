@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AR Squirrel</title>
+    <style>
+      
+     a[rel="ar"] {
+       display: none;
+     }
+
+     /* 
+       Interaction Media Queries
+       https://www.w3.org/TR/mediaqueries-4/#hover 
+     */
+     @media only screen and (hover: none) {
+      a[rel="ar"] {
+        display: block;
+      }
+     }
+
+    </style>
+
+  </head>
+  <body>
+    <a href="squirrel.usdz" rel="ar">
+      <img src="squirrel.jpg" width="250" height="250">
+    </a>
+
+  </body>
+</html>
