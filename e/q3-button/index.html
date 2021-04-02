@@ -1,0 +1,719 @@
+<html>
+  <head>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>AR Squirrel</title>
+    <style>
+       img[src ^= "images/squirrel.jpg"] {
+         display: none;
+       }
+    </style>
+    <style>
+      
+     a[rel="ar"] {
+       display: none;
+     }
+
+     /* 
+       Interaction Media Queries
+       https://www.w3.org/TR/mediaqueries-4/#hover 
+     */
+     @media only screen and (hover: hover) {
+      a[rel="ar"] {
+        display: block;
+      }
+      
+     }
+
+    </style>
+
+<style>
+
+  .group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .rotate {
+    padding-left: 12px;
+    width: 126px;
+    position: relative;
+  }
+
+  .rotate .model {
+    width: 126px;
+    background: no-repeat 0 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    box-shadow: 0 0 50px #333;
+  }
+
+  .rotate button {
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    text-indent: -9999em;
+    font-size: 0;
+    height: 21px;
+    width: 6.3px;
+    opacity: 0;
+    margin: 0;
+    padding:0;
+    touch-action: auto;
+  }
+
+  .rotate,
+  .rotate .model {
+    height: 126px;
+  }
+
+  .rotate span {
+    display: block;
+    line-height: 0;
+    height: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  /* @media (min-width: 1281px) { */
+    /* start contains black notches that follow */
+    .rotate button:hover:before,
+    .rotate button:hover:after,
+    .rotate button:focus:before,
+    .rotate button:focus:after {
+      border-radius: 10px;
+      content: " ";
+      display: block;
+      background: black;
+      position: absolute;
+    }
+
+    .rotate button:hover:before,
+    .rotate button:focus:before {
+      width: 6.3px;
+      height: 22px;
+      left: 5px;
+    }
+
+    .rotate button:hover:after,
+    .rotate button:focus:after {
+      width: 6.3px;
+      height: 10px;
+      bottom: -10px;
+    }
+  /* } */
+
+  .rotate button:nth-of-type(1):hover~div,
+  .rotate button:nth-of-type(1):active~div {
+    background-position: 0 0;
+  }
+
+  .rotate button:nth-of-type(2):hover~div,
+  .rotate button:nth-of-type(2):active~div {
+    background-position: -126px 0;
+  }
+
+  .rotate button:nth-of-type(3):hover~div,
+  .rotate button:nth-of-type(3):active~div {
+    background-position: -252px 0;
+  }
+
+  .rotate button:nth-of-type(4):hover~div,
+  .rotate button:nth-of-type(4):active~div {
+    background-position: -378px 0;
+  }
+
+  .rotate button:nth-of-type(5):hover~div,
+  .rotate button:nth-of-type(5):active~div {
+    background-position: -504px 0;
+  }
+
+  .rotate button:nth-of-type(6):hover~div,
+  .rotate button:nth-of-type(6):active~div {
+    background-position: -630px 0;
+  }
+
+  .rotate button:nth-of-type(7):hover~div,
+  .rotate button:nth-of-type(7):active~div {
+    background-position: -756px 0;
+  }
+
+  .rotate button:nth-of-type(8):hover~div,
+  .rotate button:nth-of-type(8):active~div {
+    background-position: -882px 0;
+  }
+
+  .rotate button:nth-of-type(9):hover~div,
+  .rotate button:nth-of-type(9):active~div {
+    background-position: -1008px 0;
+  }
+
+  .rotate button:nth-of-type(10):hover~div,
+  .rotate button:nth-of-type(10):active~div {
+    background-position: -1134px 0;
+  }
+
+  .rotate button:nth-of-type(11):hover~div,
+  .rotate button:nth-of-type(11):active~div {
+    background-position: 0 -126px;
+  }
+
+  .rotate button:nth-of-type(12):hover~div,
+  .rotate button:nth-of-type(12):active~div {
+    background-position: -126px -126px;
+  }
+
+  .rotate button:nth-of-type(13):hover~div,
+  .rotate button:nth-of-type(13):active~div {
+    background-position: -252px -126px;
+  }
+
+  .rotate button:nth-of-type(14):hover~div,
+  .rotate button:nth-of-type(14):active~div {
+    background-position: -378px -126px;
+  }
+
+  .rotate button:nth-of-type(15):hover~div,
+  .rotate button:nth-of-type(15):active~div {
+    background-position: -504px -126px;
+  }
+
+  .rotate button:nth-of-type(16):hover~div,
+  .rotate button:nth-of-type(16):active~div {
+    background-position: -630px -126px;
+  }
+
+  .rotate button:nth-of-type(17):hover~div,
+  .rotate button:nth-of-type(17):active~div {
+    background-position: -756px -126px;
+  }
+
+  .rotate button:nth-of-type(18):hover~div,
+  .rotate button:nth-of-type(18):active~div {
+    background-position: -882px -126px;
+  }
+
+  .rotate button:nth-of-type(19):hover~div,
+  .rotate button:nth-of-type(19):active~div {
+    background-position: -1008px -126px;
+  }
+
+  .rotate button:nth-of-type(20):hover~div,
+  .rotate button:nth-of-type(20):active~div {
+    background-position: -1134px -126px;
+  }
+
+  .rotate button:nth-of-type(21):hover~div,
+  .rotate button:nth-of-type(21):active~div {
+    background-position: 0 -252px;
+  }
+
+  .rotate button:nth-of-type(22):hover~div,
+  .rotate button:nth-of-type(22):active~div {
+    background-position: -126px -252px;
+  }
+
+  .rotate button:nth-of-type(23):hover~div,
+  .rotate button:nth-of-type(23):active~div {
+    background-position: -252px -252px;
+  }
+
+  .rotate button:nth-of-type(24):hover~div,
+  .rotate button:nth-of-type(24):active~div {
+    background-position: -378px -252px;
+  }
+
+  .rotate button:nth-of-type(25):hover~div,
+  .rotate button:nth-of-type(25):active~div {
+    background-position: -504px -252px;
+  }
+
+  .rotate button:nth-of-type(26):hover~div,
+  .rotate button:nth-of-type(26):active~div {
+    background-position: -630px -252px;
+  }
+
+  .rotate button:nth-of-type(27):hover~div,
+  .rotate button:nth-of-type(27):active~div {
+    background-position: -756px -252px;
+  }
+
+  .rotate button:nth-of-type(28):hover~div,
+  .rotate button:nth-of-type(28):active~div {
+    background-position: -882px -252px;
+  }
+
+  .rotate button:nth-of-type(29):hover~div,
+  .rotate button:nth-of-type(29):active~div {
+    background-position: -1008px -252px;
+  }
+
+  .rotate button:nth-of-type(30):hover~div,
+  .rotate button:nth-of-type(30):active~div {
+    background-position: -1134px -252px;
+  }
+
+  .rotate button:nth-of-type(31):hover~div,
+  .rotate button:nth-of-type(31):active~div {
+    background-position: 0 -378px;
+  }
+
+  .rotate button:nth-of-type(32):hover~div,
+  .rotate button:nth-of-type(32):active~div {
+    background-position: -126px -378px;
+  }
+
+  .rotate button:nth-of-type(33):hover~div,
+  .rotate button:nth-of-type(33):active~div {
+    background-position: -252px -378px;
+  }
+
+  .rotate button:nth-of-type(34):hover~div,
+  .rotate button:nth-of-type(34):active~div {
+    background-position: -378px -378px;
+  }
+
+  .rotate button:nth-of-type(35):hover~div,
+  .rotate button:nth-of-type(35):active~div {
+    background-position: -504px -378px;
+  }
+
+  .rotate button:nth-of-type(36):hover~div,
+  .rotate button:nth-of-type(36):active~div {
+    background-position: -630px -378px;
+  }
+
+  .rotate button:nth-of-type(37):hover~div,
+  .rotate button:nth-of-type(37):active~div {
+    background-position: -756px -378px;
+  }
+
+  .rotate button:nth-of-type(38):hover~div,
+  .rotate button:nth-of-type(38):active~div {
+    background-position: -882px -378px;
+  }
+
+  .rotate button:nth-of-type(39):hover~div,
+  .rotate button:nth-of-type(39):active~div {
+    background-position: -1008px -378px;
+  }
+
+  .rotate button:nth-of-type(40):hover~div,
+  .rotate button:nth-of-type(40):active~div {
+    background-position: -1134px -378px;
+  }
+
+  .rotate button:nth-of-type(41):hover~div,
+  .rotate button:nth-of-type(41):active~div {
+    background-position: 0 -504px;
+  }
+
+  .rotate button:nth-of-type(42):hover~div,
+  .rotate button:nth-of-type(42):active~div {
+    background-position: -126px -504px;
+  }
+
+  .rotate button:nth-of-type(43):hover~div,
+  .rotate button:nth-of-type(43):active~div {
+    background-position: -252px -504px;
+  }
+
+  .rotate button:nth-of-type(44):hover~div,
+  .rotate button:nth-of-type(44):active~div {
+    background-position: -378px -504px;
+  }
+
+  .rotate button:nth-of-type(45):hover~div,
+  .rotate button:nth-of-type(45):active~div {
+    background-position: -504px -504px;
+  }
+
+  .rotate button:nth-of-type(46):hover~div,
+  .rotate button:nth-of-type(46):active~div {
+    background-position: -630px -504px;
+  }
+
+  .rotate button:nth-of-type(47):hover~div,
+  .rotate button:nth-of-type(47):active~div {
+    background-position: -756px -504px;
+  }
+
+  .rotate button:nth-of-type(48):hover~div,
+  .rotate button:nth-of-type(48):active~div {
+    background-position: -882px -504px;
+  }
+
+  .rotate button:nth-of-type(49):hover~div,
+  .rotate button:nth-of-type(49):active~div {
+    background-position: -1008px -504px;
+  }
+
+  .rotate button:nth-of-type(50):hover~div,
+  .rotate button:nth-of-type(50):active~div {
+    background-position: -1134px -504px;
+  }
+
+  .rotate button:nth-of-type(51):hover~div,
+  .rotate button:nth-of-type(51):active~div {
+    background-position: 0 -630px;
+  }
+
+  .rotate button:nth-of-type(52):hover~div,
+  .rotate button:nth-of-type(52):active~div {
+    background-position: -126px -630px;
+  }
+
+  .rotate button:nth-of-type(53):hover~div,
+  .rotate button:nth-of-type(53):active~div {
+    background-position: -252px -630px;
+  }
+
+  .rotate button:nth-of-type(54):hover~div,
+  .rotate button:nth-of-type(54):active~div {
+    background-position: -378px -630px;
+  }
+
+  .rotate button:nth-of-type(55):hover~div,
+  .rotate button:nth-of-type(55):active~div {
+    background-position: -504px -630px;
+  }
+
+  .rotate button:nth-of-type(56):hover~div,
+  .rotate button:nth-of-type(56):active~div {
+    background-position: -630px -630px;
+  }
+
+  .rotate button:nth-of-type(57):hover~div,
+  .rotate button:nth-of-type(57):active~div {
+    background-position: -756px -630px;
+  }
+
+  .rotate button:nth-of-type(58):hover~div,
+  .rotate button:nth-of-type(58):active~div {
+    background-position: -882px -630px;
+  }
+
+  .rotate button:nth-of-type(59):hover~div,
+  .rotate button:nth-of-type(59):active~div {
+    background-position: -1008px -630px;
+  }
+
+  .rotate button:nth-of-type(60):hover~div,
+  .rotate button:nth-of-type(60):active~div {
+    background-position: -1134px -630px;
+  }
+
+  .rotate button:nth-of-type(61):hover~div,
+  .rotate button:nth-of-type(61):active~div {
+    background-position: 0 -756px;
+  }
+
+  .rotate button:nth-of-type(62):hover~div,
+  .rotate button:nth-of-type(62):active~div {
+    background-position: -126px -756px;
+  }
+
+  .rotate button:nth-of-type(63):hover~div,
+  .rotate button:nth-of-type(63):active~div {
+    background-position: -252px -756px;
+  }
+
+  .rotate button:nth-of-type(64):hover~div,
+  .rotate button:nth-of-type(64):active~div {
+    background-position: -378px -756px;
+  }
+
+  .rotate button:nth-of-type(65):hover~div,
+  .rotate button:nth-of-type(65):active~div {
+    background-position: -504px -756px;
+  }
+
+  .rotate button:nth-of-type(66):hover~div,
+  .rotate button:nth-of-type(66):active~div {
+    background-position: -630px -756px;
+  }
+
+  .rotate button:nth-of-type(67):hover~div,
+  .rotate button:nth-of-type(67):active~div {
+    background-position: -756px -756px;
+  }
+
+  .rotate button:nth-of-type(68):hover~div,
+  .rotate button:nth-of-type(68):active~div {
+    background-position: -882px -756px;
+  }
+
+  .rotate button:nth-of-type(69):hover~div,
+  .rotate button:nth-of-type(69):active~div {
+    background-position: -1008px -756px;
+  }
+
+  .rotate button:nth-of-type(70):hover~div,
+  .rotate button:nth-of-type(70):active~div {
+    background-position: -1134px -756px;
+  }
+
+  .rotate button:nth-of-type(71):hover~div,
+  .rotate button:nth-of-type(71):active~div {
+    background-position: 0 -882px;
+  }
+
+  .rotate button:nth-of-type(72):hover~div,
+  .rotate button:nth-of-type(72):active~div {
+    background-position: -126px -882px;
+  }
+
+  .rotate button:nth-of-type(73):hover~div,
+  .rotate button:nth-of-type(73):active~div {
+    background-position: -252px -882px;
+  }
+
+  .rotate button:nth-of-type(74):hover~div,
+  .rotate button:nth-of-type(74):active~div {
+    background-position: -378px -882px;
+  }
+
+  .rotate button:nth-of-type(75):hover~div,
+  .rotate button:nth-of-type(75):active~div {
+    background-position: -504px -882px;
+  }
+
+  .rotate button:nth-of-type(76):hover~div,
+  .rotate button:nth-of-type(76):active~div {
+    background-position: -630px -882px;
+  }
+
+  .rotate button:nth-of-type(77):hover~div,
+  .rotate button:nth-of-type(77):active~div {
+    background-position: -756px -882px;
+  }
+
+  .rotate button:nth-of-type(78):hover~div,
+  .rotate button:nth-of-type(78):active~div {
+    background-position: -882px -882px;
+  }
+
+  .rotate button:nth-of-type(79):hover~div,
+  .rotate button:nth-of-type(79):active~div {
+    background-position: -1008px -882px;
+  }
+
+  .rotate button:nth-of-type(80):hover~div,
+  .rotate button:nth-of-type(80):active~div {
+    background-position: -1134px -882px;
+  }
+
+  .rotate button:nth-of-type(81):hover~div,
+  .rotate button:nth-of-type(81):active~div {
+    background-position: 0 -1008px;
+  }
+
+  .rotate button:nth-of-type(82):hover~div,
+  .rotate button:nth-of-type(82):active~div {
+    background-position: -126px -1008px;
+  }
+
+  .rotate button:nth-of-type(83):hover~div,
+  .rotate button:nth-of-type(83):active~div {
+    background-position: -252px -1008px;
+  }
+
+  .rotate button:nth-of-type(84):hover~div,
+  .rotate button:nth-of-type(84):active~div {
+    background-position: -378px -1008px;
+  }
+
+  .rotate button:nth-of-type(85):hover~div,
+  .rotate button:nth-of-type(85):active~div {
+    background-position: -504px -1008px;
+  }
+
+  .rotate button:nth-of-type(86):hover~div,
+  .rotate button:nth-of-type(86):active~div {
+    background-position: -630px -1008px;
+  }
+
+  .rotate button:nth-of-type(87):hover~div,
+  .rotate button:nth-of-type(87):active~div {
+    background-position: -756px -1008px;
+  }
+
+  .rotate button:nth-of-type(88):hover~div,
+  .rotate button:nth-of-type(88):active~div {
+    background-position: -882px -1008px;
+  }
+
+  .rotate button:nth-of-type(89):hover~div,
+  .rotate button:nth-of-type(89):active~div {
+    background-position: -1008px -1008px;
+  }
+
+  .rotate button:nth-of-type(90):hover~div,
+  .rotate button:nth-of-type(90):active~div {
+    background-position: -1134px -1008px;
+  }
+
+  .rotate button:nth-of-type(91):hover~div,
+  .rotate button:nth-of-type(91):active~div {
+    background-position: 0 -1134px;
+  }
+
+  .rotate button:nth-of-type(92):hover~div,
+  .rotate button:nth-of-type(92):active~div {
+    background-position: -126px -1134px;
+  }
+
+  .rotate button:nth-of-type(93):hover~div,
+  .rotate button:nth-of-type(93):active~div {
+    background-position: -252px -1134px;
+  }
+
+  .rotate button:nth-of-type(94):hover~div,
+  .rotate button:nth-of-type(94):active~div {
+    background-position: -378px -1134px;
+  }
+
+  .rotate button:nth-of-type(95):hover~div,
+  .rotate button:nth-of-type(95):active~div {
+    background-position: -504px -1134px;
+  }
+
+  .rotate button:nth-of-type(96):hover~div,
+  .rotate button:nth-of-type(96):active~div {
+    background-position: -630px -1134px;
+  }
+
+  .rotate button:nth-of-type(97):hover~div,
+  .rotate button:nth-of-type(97):active~div {
+    background-position: -756px -1134px;
+  }
+
+  .rotate button:nth-of-type(98):hover~div,
+  .rotate button:nth-of-type(98):active~div {
+    background-position: -882px -1134px;
+  }
+
+  .rotate button:nth-of-type(99):hover~div,
+  .rotate button:nth-of-type(99):active~div {
+    background-position: -1008px -1134px;
+  }
+
+  .rotate button:nth-of-type(100):hover~div,
+  .rotate button:nth-of-type(100):active~div {
+    background-position: -1134px -1134px;
+  }
+
+  .rotate button:nth-of-type(101):hover~div,
+  .rotate button:nth-of-type(101):active~div {
+    background-position: 0 -1260px;
+  }
+
+  .rotate button:nth-of-type(102):hover~div,
+  .rotate button:nth-of-type(102):active~div {
+    background-position: -126px -1260px;
+  }
+
+  .rotate button:nth-of-type(103):hover~div,
+  .rotate button:nth-of-type(103):active~div {
+    background-position: -252px -1260px;
+  }
+
+  .rotate button:nth-of-type(104):hover~div,
+  .rotate button:nth-of-type(104):active~div {
+    background-position: -378px -1260px;
+  }
+
+  .rotate button:nth-of-type(105):hover~div,
+  .rotate button:nth-of-type(105):active~div {
+    background-position: -504px -1260px;
+  }
+
+  .rotate button:nth-of-type(106):hover~div,
+  .rotate button:nth-of-type(106):active~div {
+    background-position: -630px -1260px;
+  }
+
+  .rotate button:nth-of-type(107):hover~div,
+  .rotate button:nth-of-type(107):active~div {
+    background-position: -756px -1260px;
+  }
+
+  .rotate button:nth-of-type(108):hover~div,
+  .rotate button:nth-of-type(108):active~div {
+    background-position: -882px -1260px;
+  }
+
+  .rotate button:nth-of-type(109):hover~div,
+  .rotate button:nth-of-type(109):active~div {
+    background-position: -1008px -1260px;
+  }
+
+  .rotate button:nth-of-type(110):hover~div,
+  .rotate button:nth-of-type(110):active~div {
+    background-position: -1134px -1260px;
+  }
+
+  .rotate button:nth-of-type(111):hover~div,
+  .rotate button:nth-of-type(111):active~div {
+    background-position: 0 -1386px;
+  }
+
+  .rotate button:nth-of-type(112):hover~div,
+  .rotate button:nth-of-type(112):active~div {
+    background-position: -126px -1386px;
+  }
+
+  .rotate button:nth-of-type(113):hover~div,
+  .rotate button:nth-of-type(113):active~div {
+    background-position: -252px -1386px;
+  }
+
+  .rotate button:nth-of-type(114):hover~div,
+  .rotate button:nth-of-type(114):active~div {
+    background-position: -378px -1386px;
+  }
+
+  .rotate button:nth-of-type(115):hover~div,
+  .rotate button:nth-of-type(115):active~div {
+    background-position: -504px -1386px;
+  }
+
+  .rotate button:nth-of-type(116):hover~div,
+  .rotate button:nth-of-type(116):active~div {
+    background-position: -630px -1386px;
+  }
+
+  .rotate button:nth-of-type(117):hover~div,
+  .rotate button:nth-of-type(117):active~div {
+    background-position: -756px -1386px;
+  }
+
+  .rotate button:nth-of-type(118):hover~div,
+  .rotate button:nth-of-type(118):active~div {
+    background-position: -882px -1386px;
+  }
+
+  .rotate button:nth-of-type(119):hover~div,
+  .rotate button:nth-of-type(119):active~div {
+    background-position: -1008px -1386px;
+  }
+
+  .rotate button:nth-of-type(120):hover~div,
+  .rotate button:nth-of-type(120):active~div {
+    background-position: -1134px -1386px;
+  }
+
+</style>
+
+  </head>
+  <body>
+    <div class="rotate group"><button>01</button><button>02</button><button>03</button><button>04</button><button>05</button><button>06</button><button>07</button><button>08</button><button>09</button><button>10</button><button>11</button><button>12</button><button>13</button><button>14</button><button>15</button><button>16</button><button>17</button><button>18</button><button>19</button><button>20</button><span></span><button>21</button><button>22</button><button>23</button><button>24</button><button>25</button><button>26</button><button>27</button><button>28</button><button>29</button><button>30</button><button>31</button><button>32</button><button>33</button><button>34</button><button>35</button><button>36</button><button>37</button><button>38</button><button>39</button><button>40</button><span></span><button>41</button><button>42</button><button>43</button><button>44</button><button>45</button><button>46</button><button>47</button><button>48</button><button>49</button><button>50</button><button>51</button><button>52</button><button>53</button><button>54</button><button>55</button><button>56</button><button>57</button><button>58</button><button>59</button><button>60</button><span></span><button>61</button><button>62</button><button>63</button><button>64</button><button>65</button><button>66</button><button>67</button><button>68</button><button>69</button><button>70</button><button>71</button><button>72</button><button>73</button><button>74</button><button>75</button><button>76</button><button>77</button><button>78</button><button>79</button><button>80</button><span></span><button>81</button><button>82</button><button>83</button><button>84</button><button>85</button><button>86</button><button>87</button><button>88</button><button>89</button><button>90</button><button>91</button><button>92</button><button>93</button><button>94</button><button>95</button><button>96</button><button>97</button><button>98</button><button>99</button><button>100</button><span></span><button>101</button><button>102</button><button>103</button><button>104</button><button>105</button><button>106</button><button>107</button><button>108</button><button>109</button><button>110</button><button>111</button><button>112</button><button>113</button><button>114</button><button>115</button><button>116</button><button>117</button><button>118</button><button>119</button><button>120</button><span></span><div class="model" style="background-image: url(images/mini-reel1.jpg);"></div></div>
+
+    <a href="assets/squirrel.usdz" rel="ar">
+      <img src="images/squirrel.jpg" width="250" height="250">
+    </a>
+
+    <img src="images/squirrel.jpg" width="250" height="250">
+
+  </body>
+</html>

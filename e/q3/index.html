@@ -1,7 +1,13 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <title>AR Squirrel</title>
+
+    <style>
+       img[src ^= "images/squirrel.jpg"] {
+         display: none;
+       }
+    </style>
     <style>
       
      a[rel="ar"] {
@@ -12,13 +18,9 @@
        Interaction Media Queries
        https://www.w3.org/TR/mediaqueries-4/#hover 
      */
-     @media only screen and (hover: none) {
+     @media only screen and (hover: hover) {
       a[rel="ar"] {
         display: block;
-      }
-
-      .group {
-        display: none;
       }
       
      }
@@ -46,22 +48,25 @@
     top: 0;
     z-index: -1;
     box-shadow: 0 0 50px #333;
-
   }
 
-  .rotate b {
+  .rotate li {
+    -webkit-tap-highlight-color: transparent;
     display: inline-block;
     text-indent: -9999em;
+    /* background-color: red; */
+    font-size: 0;
+    height: 21px;
     width: 6.3px;
+    opacity: 0;
+    margin: 0;
+    padding:0;
+    touch-action: auto;
   }
 
   .rotate,
   .rotate .model {
     height: 126px;
-  }
-
-  .rotate b {
-    height: 21px;
   }
 
   .rotate span {
@@ -74,10 +79,10 @@
 
   /* @media (min-width: 1281px) { */
     /* start contains black notches that follow */
-    .rotate b:hover:before,
-    .rotate b:hover:after,
-    .rotate b:focus:before,
-    .rotate b:focus:after {
+    .rotate li:hover:before,
+    .rotate li:hover:after,
+    .rotate li:focus:before,
+    .rotate li:focus:after {
       border-radius: 10px;
       content: " ";
       display: block;
@@ -85,510 +90,520 @@
       position: absolute;
     }
 
-    .rotate b:hover:before,
-    .rotate b:focus:before {
+    .rotate li:hover:before,
+    .rotate li:focus:before {
       width: 6.3px;
       height: 22px;
       left: 5px;
     }
 
-    .rotate b:hover:after,
-    .rotate b:focus:after {
+    .rotate li:hover:after,
+    .rotate li:focus:after {
       width: 6.3px;
       height: 10px;
       bottom: -10px;
     }
   /* } */
 
-  .rotate b:nth-of-type(1):hover~div {
-    background-position: 0 0;
+  .rotate li:hover~div {
+    cursor: pointer;
   }
 
-  .rotate b:nth-of-type(2):hover~div {
+  .rotate li:nth-of-type(1):hover~div {
+    background-position: 0 0;
+    display: none;
+  }
+
+  .rotate li:nth-of-type(2):hover~div {
     background-position: -126px 0;
   }
 
-  .rotate b:nth-of-type(3):hover~div {
+  .rotate li:nth-of-type(3):hover~div {
     background-position: -252px 0;
   }
 
-  .rotate b:nth-of-type(4):hover~div {
+  .rotate li:nth-of-type(4):hover~div {
     background-position: -378px 0;
   }
 
-  .rotate b:nth-of-type(5):hover~div {
+  .rotate li:nth-of-type(5):hover~div {
     background-position: -504px 0;
   }
 
-  .rotate b:nth-of-type(6):hover~div {
+  .rotate li:nth-of-type(6):hover~div {
     background-position: -630px 0;
   }
 
-  .rotate b:nth-of-type(7):hover~div {
+  .rotate li:nth-of-type(7):hover~div {
     background-position: -756px 0;
   }
 
-  .rotate b:nth-of-type(8):hover~div {
+  .rotate li:nth-of-type(8):hover~div {
     background-position: -882px 0;
   }
 
-  .rotate b:nth-of-type(9):hover~div {
+  .rotate li:nth-of-type(9):hover~div {
     background-position: -1008px 0;
   }
 
-  .rotate b:nth-of-type(10):hover~div {
+  .rotate li:nth-of-type(10):hover~div {
     background-position: -1134px 0;
   }
 
-  .rotate b:nth-of-type(11):hover~div {
+  .rotate li:nth-of-type(11):hover~div {
     background-position: 0 -126px;
   }
 
-  .rotate b:nth-of-type(12):hover~div {
+  .rotate li:nth-of-type(12):hover~div {
     background-position: -126px -126px;
   }
 
-  .rotate b:nth-of-type(13):hover~div {
+  .rotate li:nth-of-type(13):hover~div {
     background-position: -252px -126px;
   }
 
-  .rotate b:nth-of-type(14):hover~div {
+  .rotate li:nth-of-type(14):hover~div {
     background-position: -378px -126px;
   }
 
-  .rotate b:nth-of-type(15):hover~div {
+  .rotate li:nth-of-type(15):hover~div {
     background-position: -504px -126px;
   }
 
-  .rotate b:nth-of-type(16):hover~div {
+  .rotate li:nth-of-type(16):hover~div {
     background-position: -630px -126px;
   }
 
-  .rotate b:nth-of-type(17):hover~div {
+  .rotate li:nth-of-type(17):hover~div {
     background-position: -756px -126px;
   }
 
-  .rotate b:nth-of-type(18):hover~div {
+  .rotate li:nth-of-type(18):hover~div {
     background-position: -882px -126px;
   }
 
-  .rotate b:nth-of-type(19):hover~div {
+  .rotate li:nth-of-type(19):hover~div {
     background-position: -1008px -126px;
   }
 
-  .rotate b:nth-of-type(20):hover~div {
+  .rotate li:nth-of-type(20):hover~div {
     background-position: -1134px -126px;
   }
 
-  .rotate b:nth-of-type(21):hover~div {
+  .rotate li:nth-of-type(21):hover~div {
     background-position: 0 -252px;
   }
 
-  .rotate b:nth-of-type(22):hover~div {
+  .rotate li:nth-of-type(22):hover~div {
     background-position: -126px -252px;
   }
 
-  .rotate b:nth-of-type(23):hover~div {
+  .rotate li:nth-of-type(23):hover~div {
     background-position: -252px -252px;
   }
 
-  .rotate b:nth-of-type(24):hover~div {
+  .rotate li:nth-of-type(24):hover~div {
     background-position: -378px -252px;
   }
 
-  .rotate b:nth-of-type(25):hover~div {
+  .rotate li:nth-of-type(25):hover~div {
     background-position: -504px -252px;
   }
 
-  .rotate b:nth-of-type(26):hover~div {
+  .rotate li:nth-of-type(26):hover~div {
     background-position: -630px -252px;
   }
 
-  .rotate b:nth-of-type(27):hover~div {
+  .rotate li:nth-of-type(27):hover~div {
     background-position: -756px -252px;
   }
 
-  .rotate b:nth-of-type(28):hover~div {
+  .rotate li:nth-of-type(28):hover~div {
     background-position: -882px -252px;
   }
 
-  .rotate b:nth-of-type(29):hover~div {
+  .rotate li:nth-of-type(29):hover~div {
     background-position: -1008px -252px;
   }
 
-  .rotate b:nth-of-type(30):hover~div {
+  .rotate li:nth-of-type(30):hover~div {
     background-position: -1134px -252px;
   }
 
-  .rotate b:nth-of-type(31):hover~div {
+  .rotate li:nth-of-type(31):hover~div {
     background-position: 0 -378px;
   }
 
-  .rotate b:nth-of-type(32):hover~div {
+  .rotate li:nth-of-type(32):hover~div {
     background-position: -126px -378px;
   }
 
-  .rotate b:nth-of-type(33):hover~div {
+  .rotate li:nth-of-type(33):hover~div {
     background-position: -252px -378px;
   }
 
-  .rotate b:nth-of-type(34):hover~div {
+  .rotate li:nth-of-type(34):hover~div {
     background-position: -378px -378px;
   }
 
-  .rotate b:nth-of-type(35):hover~div {
+  .rotate li:nth-of-type(35):hover~div {
     background-position: -504px -378px;
   }
 
-  .rotate b:nth-of-type(36):hover~div {
+  .rotate li:nth-of-type(36):hover~div {
     background-position: -630px -378px;
   }
 
-  .rotate b:nth-of-type(37):hover~div {
+  .rotate li:nth-of-type(37):hover~div {
     background-position: -756px -378px;
   }
 
-  .rotate b:nth-of-type(38):hover~div {
+  .rotate li:nth-of-type(38):hover~div {
     background-position: -882px -378px;
   }
 
-  .rotate b:nth-of-type(39):hover~div {
+  .rotate li:nth-of-type(39):hover~div {
     background-position: -1008px -378px;
   }
 
-  .rotate b:nth-of-type(40):hover~div {
+  .rotate li:nth-of-type(40):hover~div {
     background-position: -1134px -378px;
   }
 
-  .rotate b:nth-of-type(41):hover~div {
+  .rotate li:nth-of-type(41):hover~div {
     background-position: 0 -504px;
   }
 
-  .rotate b:nth-of-type(42):hover~div {
+  .rotate li:nth-of-type(42):hover~div {
     background-position: -126px -504px;
   }
 
-  .rotate b:nth-of-type(43):hover~div {
+  .rotate li:nth-of-type(43):hover~div {
     background-position: -252px -504px;
   }
 
-  .rotate b:nth-of-type(44):hover~div {
+  .rotate li:nth-of-type(44):hover~div {
     background-position: -378px -504px;
   }
 
-  .rotate b:nth-of-type(45):hover~div {
+  .rotate li:nth-of-type(45):hover~div {
     background-position: -504px -504px;
   }
 
-  .rotate b:nth-of-type(46):hover~div {
+  .rotate li:nth-of-type(46):hover~div {
     background-position: -630px -504px;
   }
 
-  .rotate b:nth-of-type(47):hover~div {
+  .rotate li:nth-of-type(47):hover~div {
     background-position: -756px -504px;
   }
 
-  .rotate b:nth-of-type(48):hover~div {
+  .rotate li:nth-of-type(48):hover~div {
     background-position: -882px -504px;
   }
 
-  .rotate b:nth-of-type(49):hover~div {
+  .rotate li:nth-of-type(49):hover~div {
     background-position: -1008px -504px;
   }
 
-  .rotate b:nth-of-type(50):hover~div {
+  .rotate li:nth-of-type(50):hover~div {
     background-position: -1134px -504px;
   }
 
-  .rotate b:nth-of-type(51):hover~div {
+  .rotate li:nth-of-type(51):hover~div {
     background-position: 0 -630px;
   }
 
-  .rotate b:nth-of-type(52):hover~div {
+  .rotate li:nth-of-type(52):hover~div {
     background-position: -126px -630px;
   }
 
-  .rotate b:nth-of-type(53):hover~div {
+  .rotate li:nth-of-type(53):hover~div {
     background-position: -252px -630px;
   }
 
-  .rotate b:nth-of-type(54):hover~div {
+  .rotate li:nth-of-type(54):hover~div {
     background-position: -378px -630px;
   }
 
-  .rotate b:nth-of-type(55):hover~div {
+  .rotate li:nth-of-type(55):hover~div {
     background-position: -504px -630px;
   }
 
-  .rotate b:nth-of-type(56):hover~div {
+  .rotate li:nth-of-type(56):hover~div {
     background-position: -630px -630px;
   }
 
-  .rotate b:nth-of-type(57):hover~div {
+  .rotate li:nth-of-type(57):hover~div {
     background-position: -756px -630px;
   }
 
-  .rotate b:nth-of-type(58):hover~div {
+  .rotate li:nth-of-type(58):hover~div {
     background-position: -882px -630px;
   }
 
-  .rotate b:nth-of-type(59):hover~div {
+  .rotate li:nth-of-type(59):hover~div {
     background-position: -1008px -630px;
   }
 
-  .rotate b:nth-of-type(60):hover~div {
+  .rotate li:nth-of-type(60):hover~div {
     background-position: -1134px -630px;
   }
 
-  .rotate b:nth-of-type(61):hover~div {
+  .rotate li:nth-of-type(61):hover~div {
     background-position: 0 -756px;
   }
 
-  .rotate b:nth-of-type(62):hover~div {
+  .rotate li:nth-of-type(62):hover~div {
     background-position: -126px -756px;
   }
 
-  .rotate b:nth-of-type(63):hover~div {
+  .rotate li:nth-of-type(63):hover~div {
     background-position: -252px -756px;
   }
 
-  .rotate b:nth-of-type(64):hover~div {
+  .rotate li:nth-of-type(64):hover~div {
     background-position: -378px -756px;
   }
 
-  .rotate b:nth-of-type(65):hover~div {
+  .rotate li:nth-of-type(65):hover~div {
     background-position: -504px -756px;
   }
 
-  .rotate b:nth-of-type(66):hover~div {
+  .rotate li:nth-of-type(66):hover~div {
     background-position: -630px -756px;
   }
 
-  .rotate b:nth-of-type(67):hover~div {
+  .rotate li:nth-of-type(67):hover~div {
     background-position: -756px -756px;
   }
 
-  .rotate b:nth-of-type(68):hover~div {
+  .rotate li:nth-of-type(68):hover~div {
     background-position: -882px -756px;
   }
 
-  .rotate b:nth-of-type(69):hover~div {
+  .rotate li:nth-of-type(69):hover~div {
     background-position: -1008px -756px;
   }
 
-  .rotate b:nth-of-type(70):hover~div {
+  .rotate li:nth-of-type(70):hover~div {
     background-position: -1134px -756px;
   }
 
-  .rotate b:nth-of-type(71):hover~div {
+  .rotate li:nth-of-type(71):hover~div {
     background-position: 0 -882px;
   }
 
-  .rotate b:nth-of-type(72):hover~div {
+  .rotate li:nth-of-type(72):hover~div {
     background-position: -126px -882px;
   }
 
-  .rotate b:nth-of-type(73):hover~div {
+  .rotate li:nth-of-type(73):hover~div {
     background-position: -252px -882px;
   }
 
-  .rotate b:nth-of-type(74):hover~div {
+  .rotate li:nth-of-type(74):hover~div {
     background-position: -378px -882px;
   }
 
-  .rotate b:nth-of-type(75):hover~div {
+  .rotate li:nth-of-type(75):hover~div {
     background-position: -504px -882px;
   }
 
-  .rotate b:nth-of-type(76):hover~div {
+  .rotate li:nth-of-type(76):hover~div {
     background-position: -630px -882px;
   }
 
-  .rotate b:nth-of-type(77):hover~div {
+  .rotate li:nth-of-type(77):hover~div {
     background-position: -756px -882px;
   }
 
-  .rotate b:nth-of-type(78):hover~div {
+  .rotate li:nth-of-type(78):hover~div {
     background-position: -882px -882px;
   }
 
-  .rotate b:nth-of-type(79):hover~div {
+  .rotate li:nth-of-type(79):hover~div {
     background-position: -1008px -882px;
   }
 
-  .rotate b:nth-of-type(80):hover~div {
+  .rotate li:nth-of-type(80):hover~div {
     background-position: -1134px -882px;
   }
 
-  .rotate b:nth-of-type(81):hover~div {
+  .rotate li:nth-of-type(81):hover~div {
     background-position: 0 -1008px;
   }
 
-  .rotate b:nth-of-type(82):hover~div {
+  .rotate li:nth-of-type(82):hover~div {
     background-position: -126px -1008px;
   }
 
-  .rotate b:nth-of-type(83):hover~div {
+  .rotate li:nth-of-type(83):hover~div {
     background-position: -252px -1008px;
   }
 
-  .rotate b:nth-of-type(84):hover~div {
+  .rotate li:nth-of-type(84):hover~div {
     background-position: -378px -1008px;
   }
 
-  .rotate b:nth-of-type(85):hover~div {
+  .rotate li:nth-of-type(85):hover~div {
     background-position: -504px -1008px;
   }
 
-  .rotate b:nth-of-type(86):hover~div {
+  .rotate li:nth-of-type(86):hover~div {
     background-position: -630px -1008px;
   }
 
-  .rotate b:nth-of-type(87):hover~div {
+  .rotate li:nth-of-type(87):hover~div {
     background-position: -756px -1008px;
   }
 
-  .rotate b:nth-of-type(88):hover~div {
+  .rotate li:nth-of-type(88):hover~div {
     background-position: -882px -1008px;
   }
 
-  .rotate b:nth-of-type(89):hover~div {
+  .rotate li:nth-of-type(89):hover~div {
     background-position: -1008px -1008px;
   }
 
-  .rotate b:nth-of-type(90):hover~div {
+  .rotate li:nth-of-type(90):hover~div {
     background-position: -1134px -1008px;
   }
 
-  .rotate b:nth-of-type(91):hover~div {
+  .rotate li:nth-of-type(91):hover~div {
     background-position: 0 -1134px;
   }
 
-  .rotate b:nth-of-type(92):hover~div {
+  .rotate li:nth-of-type(92):hover~div {
     background-position: -126px -1134px;
   }
 
-  .rotate b:nth-of-type(93):hover~div {
+  .rotate li:nth-of-type(93):hover~div {
     background-position: -252px -1134px;
   }
 
-  .rotate b:nth-of-type(94):hover~div {
+  .rotate li:nth-of-type(94):hover~div {
     background-position: -378px -1134px;
   }
 
-  .rotate b:nth-of-type(95):hover~div {
+  .rotate li:nth-of-type(95):hover~div {
     background-position: -504px -1134px;
   }
 
-  .rotate b:nth-of-type(96):hover~div {
+  .rotate li:nth-of-type(96):hover~div {
     background-position: -630px -1134px;
   }
 
-  .rotate b:nth-of-type(97):hover~div {
+  .rotate li:nth-of-type(97):hover~div {
     background-position: -756px -1134px;
   }
 
-  .rotate b:nth-of-type(98):hover~div {
+  .rotate li:nth-of-type(98):hover~div {
     background-position: -882px -1134px;
   }
 
-  .rotate b:nth-of-type(99):hover~div {
+  .rotate li:nth-of-type(99):hover~div {
     background-position: -1008px -1134px;
   }
 
-  .rotate b:nth-of-type(100):hover~div {
+  .rotate li:nth-of-type(100):hover~div {
     background-position: -1134px -1134px;
   }
 
-  .rotate b:nth-of-type(101):hover~div {
+  .rotate li:nth-of-type(101):hover~div {
     background-position: 0 -1260px;
   }
 
-  .rotate b:nth-of-type(102):hover~div {
+  .rotate li:nth-of-type(102):hover~div {
     background-position: -126px -1260px;
   }
 
-  .rotate b:nth-of-type(103):hover~div {
+  .rotate li:nth-of-type(103):hover~div {
     background-position: -252px -1260px;
   }
 
-  .rotate b:nth-of-type(104):hover~div {
+  .rotate li:nth-of-type(104):hover~div {
     background-position: -378px -1260px;
   }
 
-  .rotate b:nth-of-type(105):hover~div {
+  .rotate li:nth-of-type(105):hover~div {
     background-position: -504px -1260px;
   }
 
-  .rotate b:nth-of-type(106):hover~div {
+  .rotate li:nth-of-type(106):hover~div {
     background-position: -630px -1260px;
   }
 
-  .rotate b:nth-of-type(107):hover~div {
+  .rotate li:nth-of-type(107):hover~div {
     background-position: -756px -1260px;
   }
 
-  .rotate b:nth-of-type(108):hover~div {
+  .rotate li:nth-of-type(108):hover~div {
     background-position: -882px -1260px;
   }
 
-  .rotate b:nth-of-type(109):hover~div {
+  .rotate li:nth-of-type(109):hover~div {
     background-position: -1008px -1260px;
   }
 
-  .rotate b:nth-of-type(110):hover~div {
+  .rotate li:nth-of-type(110):hover~div {
     background-position: -1134px -1260px;
   }
 
-  .rotate b:nth-of-type(111):hover~div {
+  .rotate li:nth-of-type(111):hover~div {
     background-position: 0 -1386px;
   }
 
-  .rotate b:nth-of-type(112):hover~div {
+  .rotate li:nth-of-type(112):hover~div {
     background-position: -126px -1386px;
   }
 
-  .rotate b:nth-of-type(113):hover~div {
+  .rotate li:nth-of-type(113):hover~div {
     background-position: -252px -1386px;
   }
 
-  .rotate b:nth-of-type(114):hover~div {
+  .rotate li:nth-of-type(114):hover~div {
     background-position: -378px -1386px;
   }
 
-  .rotate b:nth-of-type(115):hover~div {
+  .rotate li:nth-of-type(115):hover~div {
     background-position: -504px -1386px;
   }
 
-  .rotate b:nth-of-type(116):hover~div {
+  .rotate li:nth-of-type(116):hover~div {
     background-position: -630px -1386px;
   }
 
-  .rotate b:nth-of-type(117):hover~div {
+  .rotate li:nth-of-type(117):hover~div {
     background-position: -756px -1386px;
   }
 
-  .rotate b:nth-of-type(118):hover~div {
+  .rotate li:nth-of-type(118):hover~div {
     background-position: -882px -1386px;
   }
 
-  .rotate b:nth-of-type(119):hover~div {
+  .rotate li:nth-of-type(119):hover~div {
     background-position: -1008px -1386px;
   }
 
-  .rotate b:nth-of-type(120):hover~div {
+  .rotate li:nth-of-type(120):hover~div {
     background-position: -1134px -1386px;
+  }
+
+  body {
+    overflow: hidden;
   }
 
 </style>
 
   </head>
-  <body>
-    <div class="rotate group"><b>01</b><b>02</b><b>03</b><b>04</b><b>05</b><b>06</b><b>07</b><b>08</b><b>09</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b><b>18</b><b>19</b><b>20</b><span></span><b>21</b><b>22</b><b>23</b><b>24</b><b>25</b><b>26</b><b>27</b><b>28</b><b>29</b><b>30</b><b>31</b><b>32</b><b>33</b><b>34</b><b>35</b><b>36</b><b>37</b><b>38</b><b>39</b><b>40</b><span></span><b>41</b><b>42</b><b>43</b><b>44</b><b>45</b><b>46</b><b>47</b><b>48</b><b>49</b><b>50</b><b>51</b><b>52</b><b>53</b><b>54</b><b>55</b><b>56</b><b>57</b><b>58</b><b>59</b><b>60</b><span></span><b>61</b><b>62</b><b>63</b><b>64</b><b>65</b><b>66</b><b>67</b><b>68</b><b>69</b><b>70</b><b>71</b><b>72</b><b>73</b><b>74</b><b>75</b><b>76</b><b>77</b><b>78</b><b>79</b><b>80</b><span></span><b>81</b><b>82</b><b>83</b><b>84</b><b>85</b><b>86</b><b>87</b><b>88</b><b>89</b><b>90</b><b>91</b><b>92</b><b>93</b><b>94</b><b>95</b><b>96</b><b>97</b><b>98</b><b>99</b><b>100</b><span></span><b>101</b><b>102</b><b>103</b><b>104</b><b>105</b><b>106</b><b>107</b><b>108</b><b>109</b><b>110</b><b>111</b><b>112</b><b>113</b><b>114</b><b>115</b><b>116</b><b>117</b><b>118</b><b>119</b><b>120</b><span></span><div class="model" style="background-image: url(images/mini-reel1.jpg);"></div></div>
+  <body tabIndex=0>
+    <ul class="rotate group"><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li><li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li><li>18</li><li>19</li><li>20</li><span></span><li>21</li><li>22</li><li>23</li><li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li><li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li><li>36</li><li>37</li><li>38</li><li>39</li><li>40</li><span></span><li>41</li><li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li><li>48</li><li>49</li><li>50</li><li>51</li><li>52</li><li>53</li><li>54</li><li>55</li><li>56</li><li>57</li><li>58</li><li>59</li><li>60</li><span></span><li>61</li><li>62</li><li>63</li><li>64</li><li>65</li><li>66</li><li>67</li><li>68</li><li>69</li><li>70</li><li>71</li><li>72</li><li>73</li><li>74</li><li>75</li><li>76</li><li>77</li><li>78</li><li>79</li><li>80</li><span></span><li>81</li><li>82</li><li>83</li><li>84</li><li>85</li><li>86</li><li>87</li><li>88</li><li>89</li><li>90</li><li>91</li><li>92</li><li>93</li><li>94</li><li>95</li><li>96</li><li>97</li><li>98</li><li>99</li><li>100</li><span></span><li>101</li><li>102</li><li>103</li><li>104</li><li>105</li><li>106</li><li>107</li><li>108</li><li>109</li><li>110</li><li>111</li><li>112</li><li>113</li><li>114</li><li>115</li><li>116</li><li>117</li><li>118</li><li>119</li><li>120</li><span></span><div class="model" style="background-image: url(images/mini-reel1.jpg);"></div></ul>
 
     <a href="assets/squirrel.usdz" rel="ar">
       <img src="images/squirrel.jpg" width="250" height="250">
     </a>
 
+    <img src="images/squirrel.jpg" width="250" height="250">
   </body>
 </html>
